@@ -1,0 +1,1 @@
+Starter Symfony Auth with JWT and doctrines mysql
