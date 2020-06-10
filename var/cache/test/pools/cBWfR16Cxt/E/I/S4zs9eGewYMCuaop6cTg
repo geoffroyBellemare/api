@@ -1,3 +1,0 @@
-<?php //route_name_c3785670f910c891761a15b9eb4e5148
-
-return [PHP_INT_MAX, 'api_shopping_cart_items_get_item'];
