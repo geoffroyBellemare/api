@@ -1,0 +1,233 @@
+<?php //%255BApp%255CEntity%255CShoppingCartItem%2524CLASSMETADATA%255D%255B1%255D
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ClassMetadata')),
+        clone ($p['Doctrine\\ORM\\Id\\IdentityGenerator'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Id\\IdentityGenerator')),
+    ],
+    null,
+    [
+        'stdClass' => [
+            'name' => [
+                'App\\Entity\\ShoppingCartItem',
+            ],
+            'namespace' => [
+                'App\\Entity',
+            ],
+            'rootEntityName' => [
+                'App\\Entity\\ShoppingCartItem',
+            ],
+            'identifier' => [
+                [
+                    'id',
+                ],
+            ],
+            'generatorType' => [
+                4,
+            ],
+            'fieldMappings' => [
+                [
+                    'id' => [
+                        'fieldName' => 'id',
+                        'type' => 'integer',
+                        'scale' => 0,
+                        'length' => null,
+                        'unique' => false,
+                        'nullable' => false,
+                        'precision' => 0,
+                        'id' => true,
+                        'columnName' => 'id',
+                    ],
+                    'checkOutSessionID' => [
+                        'fieldName' => 'checkOutSessionID',
+                        'type' => 'string',
+                        'scale' => 0,
+                        'length' => null,
+                        'unique' => false,
+                        'nullable' => true,
+                        'precision' => 0,
+                        'columnName' => 'check_out_session_id',
+                    ],
+                    'quantity' => [
+                        'fieldName' => 'quantity',
+                        'type' => 'integer',
+                        'scale' => 0,
+                        'length' => null,
+                        'unique' => false,
+                        'nullable' => false,
+                        'precision' => 0,
+                        'columnName' => 'quantity',
+                    ],
+                    'totalAmount' => [
+                        'fieldName' => 'totalAmount',
+                        'type' => 'float',
+                        'scale' => 0,
+                        'length' => null,
+                        'unique' => false,
+                        'nullable' => false,
+                        'precision' => 0,
+                        'columnName' => 'total_amount',
+                    ],
+                    'startTime' => [
+                        'fieldName' => 'startTime',
+                        'type' => 'datetime',
+                        'scale' => 0,
+                        'length' => null,
+                        'unique' => false,
+                        'nullable' => false,
+                        'precision' => 0,
+                        'columnName' => 'start_time',
+                    ],
+                    'endTime' => [
+                        'fieldName' => 'endTime',
+                        'type' => 'datetime',
+                        'scale' => 0,
+                        'length' => null,
+                        'unique' => false,
+                        'nullable' => false,
+                        'precision' => 0,
+                        'columnName' => 'end_time',
+                    ],
+                ],
+            ],
+            'fieldNames' => [
+                [
+                    'id' => 'id',
+                    'check_out_session_id' => 'checkOutSessionID',
+                    'quantity' => 'quantity',
+                    'total_amount' => 'totalAmount',
+                    'start_time' => 'startTime',
+                    'end_time' => 'endTime',
+                ],
+            ],
+            'columnNames' => [
+                [
+                    'id' => 'id',
+                    'checkOutSessionID' => 'check_out_session_id',
+                    'quantity' => 'quantity',
+                    'totalAmount' => 'total_amount',
+                    'startTime' => 'start_time',
+                    'endTime' => 'end_time',
+                ],
+            ],
+            'table' => [
+                [
+                    'name' => 'shopping_cart_item',
+                ],
+            ],
+            'associationMappings' => [
+                [
+                    'cart' => [
+                        'fieldName' => 'cart',
+                        'joinColumns' => [
+                            [
+                                'name' => 'cart_id',
+                                'referencedColumnName' => 'id',
+                            ],
+                        ],
+                        'cascade' => [],
+                        'inversedBy' => null,
+                        'targetEntity' => 'App\\Entity\\ShoppingCart',
+                        'fetch' => 2,
+                        'type' => 2,
+                        'mappedBy' => null,
+                        'isOwningSide' => true,
+                        'sourceEntity' => 'App\\Entity\\ShoppingCartItem',
+                        'isCascadeRemove' => false,
+                        'isCascadePersist' => false,
+                        'isCascadeRefresh' => false,
+                        'isCascadeMerge' => false,
+                        'isCascadeDetach' => false,
+                        'sourceToTargetKeyColumns' => [
+                            'cart_id' => 'id',
+                        ],
+                        'joinColumnFieldNames' => [
+                            'cart_id' => 'cart_id',
+                        ],
+                        'targetToSourceKeyColumns' => [
+                            'id' => 'cart_id',
+                        ],
+                        'orphanRemoval' => false,
+                    ],
+                    'prestation' => [
+                        'fieldName' => 'prestation',
+                        'joinColumns' => [
+                            [
+                                'name' => 'prestation_id',
+                                'unique' => false,
+                                'nullable' => false,
+                                'onDelete' => 'CASCADE',
+                                'columnDefinition' => null,
+                                'referencedColumnName' => 'id',
+                            ],
+                        ],
+                        'cascade' => [],
+                        'inversedBy' => null,
+                        'targetEntity' => 'App\\Entity\\Prestation',
+                        'fetch' => 2,
+                        'type' => 2,
+                        'mappedBy' => null,
+                        'isOwningSide' => true,
+                        'sourceEntity' => 'App\\Entity\\ShoppingCartItem',
+                        'isCascadeRemove' => false,
+                        'isCascadePersist' => false,
+                        'isCascadeRefresh' => false,
+                        'isCascadeMerge' => false,
+                        'isCascadeDetach' => false,
+                        'sourceToTargetKeyColumns' => [
+                            'prestation_id' => 'id',
+                        ],
+                        'joinColumnFieldNames' => [
+                            'prestation_id' => 'prestation_id',
+                        ],
+                        'targetToSourceKeyColumns' => [
+                            'id' => 'prestation_id',
+                        ],
+                        'orphanRemoval' => false,
+                    ],
+                    'command' => [
+                        'fieldName' => 'command',
+                        'joinColumns' => [
+                            [
+                                'name' => 'command_id',
+                                'unique' => false,
+                                'nullable' => true,
+                                'onDelete' => 'SET NULL',
+                                'columnDefinition' => null,
+                                'referencedColumnName' => 'id',
+                            ],
+                        ],
+                        'cascade' => [],
+                        'inversedBy' => null,
+                        'targetEntity' => 'App\\Entity\\Command',
+                        'fetch' => 2,
+                        'type' => 2,
+                        'mappedBy' => null,
+                        'isOwningSide' => true,
+                        'sourceEntity' => 'App\\Entity\\ShoppingCartItem',
+                        'isCascadeRemove' => false,
+                        'isCascadePersist' => false,
+                        'isCascadeRefresh' => false,
+                        'isCascadeMerge' => false,
+                        'isCascadeDetach' => false,
+                        'sourceToTargetKeyColumns' => [
+                            'command_id' => 'id',
+                        ],
+                        'joinColumnFieldNames' => [
+                            'command_id' => 'command_id',
+                        ],
+                        'targetToSourceKeyColumns' => [
+                            'id' => 'command_id',
+                        ],
+                        'orphanRemoval' => false,
+                    ],
+                ],
+            ],
+            'idGenerator' => [
+                $o[1],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];

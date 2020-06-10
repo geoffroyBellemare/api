@@ -1,0 +1,56 @@
+<?php //subresource_operations_50acc6d96a833125a37328369bf88aed
+
+return [PHP_INT_MAX, [
+    'api_commands_shopping_cart_items_get_subresource' => [
+        'property' => 'shoppingCartItems',
+        'collection' => true,
+        'resource_class' => 'App\\Entity\\ShoppingCartItem',
+        'shortNames' => [
+            'ShoppingCartItem',
+            'Command',
+        ],
+        'identifiers' => [
+            [
+                'id',
+                'App\\Entity\\Command',
+                true,
+            ],
+        ],
+        'operation_name' => 'shopping_cart_items_get_subresource',
+        'route_name' => 'api_commands_shopping_cart_items_get_subresource',
+        'path' => '/commands/{id}/shopping_cart_items.{_format}',
+        'defaults' => [],
+        'requirements' => [],
+        'options' => [],
+        'host' => '',
+        'schemes' => [],
+        'condition' => '',
+        'controller' => null,
+    ],
+    'api_commands_command_items_get_subresource' => [
+        'property' => 'commandItems',
+        'collection' => true,
+        'resource_class' => 'App\\Entity\\CommandItem',
+        'shortNames' => [
+            'CommandItem',
+            'Command',
+        ],
+        'identifiers' => [
+            [
+                'id',
+                'App\\Entity\\Command',
+                true,
+            ],
+        ],
+        'operation_name' => 'command_items_get_subresource',
+        'route_name' => 'api_commands_command_items_get_subresource',
+        'path' => '/commands/{id}/command_items.{_format}',
+        'defaults' => [],
+        'requirements' => [],
+        'options' => [],
+        'host' => '',
+        'schemes' => [],
+        'condition' => '',
+        'controller' => null,
+    ],
+]];

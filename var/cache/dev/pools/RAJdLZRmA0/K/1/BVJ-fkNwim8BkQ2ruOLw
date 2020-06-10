@@ -1,0 +1,43 @@
+<?php //%255BApp%255CEntity%255CPrestation%2524company%255D%255B1%255D
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Component\\Serializer\\Annotation\\Groups'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Annotation\\Groups')),
+        clone ($p['Doctrine\\ORM\\Mapping\\ManyToOne'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ManyToOne')),
+        clone ($p['Doctrine\\ORM\\Mapping\\JoinColumn'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\JoinColumn')),
+    ],
+    null,
+    [
+        'Symfony\\Component\\Serializer\\Annotation\\Groups' => [
+            'groups' => [
+                [
+                    'get_command_with_item',
+                    'get-cart-with-item',
+                ],
+            ],
+        ],
+        'stdClass' => [
+            'targetEntity' => [
+                1 => 'App\\Entity\\Company',
+            ],
+            'inversedBy' => [
+                1 => 'prestations',
+            ],
+            'name' => [
+                2 => 'company_id',
+            ],
+            'nullable' => [
+                2 => false,
+            ],
+            'onDelete' => [
+                2 => 'CASCADE',
+            ],
+        ],
+    ],
+    [
+        $o[0],
+        $o[1],
+        $o[2],
+    ],
+    []
+); }];

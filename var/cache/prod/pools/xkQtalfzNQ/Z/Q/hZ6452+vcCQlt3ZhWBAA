@@ -1,0 +1,315 @@
+<?php //resource_metadata_50acc6d96a833125a37328369bf88aed
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['ApiPlatform\\Core\\Metadata\\Resource\\ResourceMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Core\\Metadata\\Resource\\ResourceMetadata')),
+    ],
+    null,
+    [
+        'ApiPlatform\\Core\\Metadata\\Resource\\ResourceMetadata' => [
+            'shortName' => [
+                'Command',
+            ],
+            'description' => [
+                'Class Command',
+            ],
+            'itemOperations' => [
+                [
+                    'get' => [
+                        'method' => 'GET',
+                        'input_formats' => [
+                            'jsonld' => [
+                                'application/ld+json',
+                            ],
+                            'json' => [
+                                'application/json',
+                            ],
+                            'html' => [
+                                'text/html',
+                            ],
+                        ],
+                        'output_formats' => [
+                            'jsonld' => [
+                                'application/ld+json',
+                            ],
+                            'json' => [
+                                'application/json',
+                            ],
+                            'html' => [
+                                'text/html',
+                            ],
+                        ],
+                    ],
+                    'put' => [
+                        'denormalization_context' => [
+                            'groups' => [
+                                'put',
+                            ],
+                        ],
+                        'normalization_context' => [
+                            'groups' => [
+                                'get_command_with_item',
+                            ],
+                        ],
+                        'input' => null,
+                        'output' => null,
+                        'method' => 'PUT',
+                        'input_formats' => [
+                            'jsonld' => [
+                                'application/ld+json',
+                            ],
+                            'json' => [
+                                'application/json',
+                            ],
+                            'html' => [
+                                'text/html',
+                            ],
+                        ],
+                        'output_formats' => [
+                            'jsonld' => [
+                                'application/ld+json',
+                            ],
+                            'json' => [
+                                'application/json',
+                            ],
+                            'html' => [
+                                'text/html',
+                            ],
+                        ],
+                    ],
+                    'put-checkout-session' => [
+                        'method' => 'PUT',
+                        'path' => '/command/{id}/checkout',
+                        'controller' => 'CreateCheckoutSession',
+                        'denormalization_context' => [
+                            'groups' => [
+                                'post-checkout-session',
+                            ],
+                        ],
+                        'input' => null,
+                        'output' => null,
+                        'input_formats' => [
+                            'jsonld' => [
+                                'application/ld+json',
+                            ],
+                            'json' => [
+                                'application/json',
+                            ],
+                            'html' => [
+                                'text/html',
+                            ],
+                        ],
+                        'output_formats' => [
+                            'jsonld' => [
+                                'application/ld+json',
+                            ],
+                            'json' => [
+                                'application/json',
+                            ],
+                            'html' => [
+                                'text/html',
+                            ],
+                        ],
+                    ],
+                    'get-paymentIntent' => [
+                        'method' => 'GET',
+                        'path' => '/command/paymentItent/{id}',
+                        'controller' => 'App\\Controller\\CommandIntentAction',
+                        'access_control' => 'is_granted(\'IS_AUTHENTICATED_FULLY\') and (object.getCustomer() == user or is_granted(\'ROLE_ADMIN\'))',
+                        'normalization_context' => [
+                            'groups' => [
+                                'put-payment-intent',
+                            ],
+                        ],
+                        'input' => null,
+                        'output' => null,
+                        'input_formats' => [
+                            'jsonld' => [
+                                'application/ld+json',
+                            ],
+                            'json' => [
+                                'application/json',
+                            ],
+                            'html' => [
+                                'text/html',
+                            ],
+                        ],
+                        'output_formats' => [
+                            'jsonld' => [
+                                'application/ld+json',
+                            ],
+                            'json' => [
+                                'application/json',
+                            ],
+                            'html' => [
+                                'text/html',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+            'collectionOperations' => [
+                [
+                    'get' => [
+                        'normalization_context' => [
+                            'groups' => [
+                                'get_command_with_item',
+                            ],
+                        ],
+                        'input' => null,
+                        'output' => null,
+                        'method' => 'GET',
+                        'input_formats' => [
+                            'jsonld' => [
+                                'application/ld+json',
+                            ],
+                            'json' => [
+                                'application/json',
+                            ],
+                            'html' => [
+                                'text/html',
+                            ],
+                        ],
+                        'output_formats' => [
+                            'jsonld' => [
+                                'application/ld+json',
+                            ],
+                            'json' => [
+                                'application/json',
+                            ],
+                            'html' => [
+                                'text/html',
+                            ],
+                        ],
+                    ],
+                    'post_PaymentIntent' => [
+                        'method' => 'POST',
+                        'path' => '/command/paymentItent',
+                        'controller' => 'App\\Controller\\CommandIntentAction',
+                        'access_control' => 'is_granted(\'IS_AUTHENTICATED_FULLY\')',
+                        'denormalization_context' => [
+                            'groups' => [
+                                'put-payment-intent',
+                            ],
+                        ],
+                        'input' => null,
+                        'output' => null,
+                        'input_formats' => [
+                            'jsonld' => [
+                                'application/ld+json',
+                            ],
+                            'json' => [
+                                'application/json',
+                            ],
+                            'html' => [
+                                'text/html',
+                            ],
+                        ],
+                        'output_formats' => [
+                            'jsonld' => [
+                                'application/ld+json',
+                            ],
+                            'json' => [
+                                'application/json',
+                            ],
+                            'html' => [
+                                'text/html',
+                            ],
+                        ],
+                    ],
+                    'post' => [
+                        'denormalization_context' => [
+                            'groups' => [
+                                'post',
+                            ],
+                        ],
+                        'normalization_context' => [
+                            'groups' => [
+                                'get_command_with_item',
+                            ],
+                        ],
+                        'input' => null,
+                        'output' => null,
+                        'method' => 'POST',
+                        'input_formats' => [
+                            'jsonld' => [
+                                'application/ld+json',
+                            ],
+                            'json' => [
+                                'application/json',
+                            ],
+                            'html' => [
+                                'text/html',
+                            ],
+                        ],
+                        'output_formats' => [
+                            'jsonld' => [
+                                'application/ld+json',
+                            ],
+                            'json' => [
+                                'application/json',
+                            ],
+                            'html' => [
+                                'text/html',
+                            ],
+                        ],
+                    ],
+                    'post-hooks' => [
+                        'method' => 'POST',
+                        'path' => '/commands/hooks',
+                        'controller' => 'App\\Controller\\StripeHooksAction',
+                        'defaults' => [
+                            '_api_receive' => false,
+                        ],
+                        'input' => null,
+                        'output' => null,
+                        'input_formats' => [
+                            'jsonld' => [
+                                'application/ld+json',
+                            ],
+                            'json' => [
+                                'application/json',
+                            ],
+                            'html' => [
+                                'text/html',
+                            ],
+                        ],
+                        'output_formats' => [
+                            'jsonld' => [
+                                'application/ld+json',
+                            ],
+                            'json' => [
+                                'application/json',
+                            ],
+                            'html' => [
+                                'text/html',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+            'graphql' => [
+                [
+                    'item_query' => [],
+                    'collection_query' => [],
+                    'delete' => [],
+                    'update' => [],
+                    'create' => [],
+                ],
+            ],
+            'attributes' => [
+                [
+                    'pagination_enabled' => false,
+                    'input' => null,
+                    'output' => null,
+                    'filters' => [
+                        'annotated_app_entity_command_api_platform_core_bridge_doctrine_orm_filter_search_filter',
+                        'annotated_app_entity_command_api_platform_core_serializer_filter_property_filter',
+                    ],
+                ],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];

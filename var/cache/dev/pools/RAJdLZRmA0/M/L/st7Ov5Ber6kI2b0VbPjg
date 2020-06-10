@@ -1,0 +1,27 @@
+<?php //%255BApp%255CEntity%255CEphemeralKey%255D%255B1%255D
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['ApiPlatform\\Core\\Annotation\\ApiResource'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Core\\Annotation\\ApiResource')),
+    ],
+    null,
+    [
+        'stdClass' => [
+            'collectionOperations' => [
+                [
+                    'post' => [
+                        'access_control' => 'is_granted(\'IS_AUTHENTICATED_FULLY\')',
+                        'path' => '/ephemeral_key',
+                    ],
+                ],
+            ],
+            'itemOperations' => [
+                [],
+            ],
+        ],
+    ],
+    [
+        $o[0],
+    ],
+    []
+); }];

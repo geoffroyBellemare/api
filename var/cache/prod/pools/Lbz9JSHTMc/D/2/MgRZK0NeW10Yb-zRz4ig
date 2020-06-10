@@ -1,0 +1,264 @@
+<?php //App.Entity.User
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        (($f = &\Symfony\Component\VarExporter\Internal\Registry::$factories)['Symfony\\Component\\Validator\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::f('Symfony\\Component\\Validator\\Mapping\\ClassMetadata'))(),
+        ($f['Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::f('Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'))(),
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Component\\Validator\\Constraints\\NotBlank'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\NotBlank')),
+        $f['Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'](),
+        clone $p['Symfony\\Component\\Validator\\Constraints\\NotBlank'],
+        clone ($p['Symfony\\Component\\Validator\\Constraints\\Regex'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\Regex')),
+        $f['Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'](),
+        clone $p['Symfony\\Component\\Validator\\Constraints\\NotBlank'],
+        clone ($p['Symfony\\Component\\Validator\\Constraints\\Expression'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\Expression')),
+        $f['Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'](),
+        clone $p['Symfony\\Component\\Validator\\Constraints\\NotBlank'],
+        clone $p['Symfony\\Component\\Validator\\Constraints\\Regex'],
+        $f['Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'](),
+        clone $p['Symfony\\Component\\Validator\\Constraints\\NotBlank'],
+        clone $p['Symfony\\Component\\Validator\\Constraints\\Expression'],
+        $f['Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'](),
+        clone ($p['Symfony\\Component\\Security\\Core\\Validator\\Constraints\\UserPassword'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Security\\Core\\Validator\\Constraints\\UserPassword')),
+        $f['Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'](),
+        clone $p['Symfony\\Component\\Validator\\Constraints\\NotBlank'],
+        clone ($p['Symfony\\Bridge\\Doctrine\\Validator\\Constraints\\UniqueEntity'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Bridge\\Doctrine\\Validator\\Constraints\\UniqueEntity')),
+        clone $p['Symfony\\Bridge\\Doctrine\\Validator\\Constraints\\UniqueEntity'],
+    ],
+    null,
+    [
+        'stdClass' => [
+            'name' => [
+                'App\\Entity\\User',
+                'username',
+                3 => 'password',
+                6 => 'retypePassword',
+                9 => 'newPassword',
+                12 => 'newRetypePassword',
+                15 => 'oldPassword',
+                17 => 'name',
+            ],
+            'defaultGroup' => [
+                'User',
+            ],
+            'members' => [
+                [
+                    'username' => [
+                        $o[1],
+                    ],
+                    'password' => [
+                        $o[3],
+                    ],
+                    'retypePassword' => [
+                        $o[6],
+                    ],
+                    'newPassword' => [
+                        $o[9],
+                    ],
+                    'newRetypePassword' => [
+                        $o[12],
+                    ],
+                    'oldPassword' => [
+                        $o[15],
+                    ],
+                    'name' => [
+                        $o[17],
+                    ],
+                ],
+            ],
+            'properties' => [
+                [
+                    'username' => $o[1],
+                    'password' => $o[3],
+                    'retypePassword' => $o[6],
+                    'newPassword' => $o[9],
+                    'newRetypePassword' => $o[12],
+                    'oldPassword' => $o[15],
+                    'name' => $o[17],
+                ],
+            ],
+            'constraints' => [
+                [
+                    $o[19],
+                    $o[20],
+                ],
+                [
+                    $o[2],
+                ],
+                3 => [
+                    $o[4],
+                    $o[5],
+                ],
+                6 => [
+                    $o[7],
+                    $o[8],
+                ],
+                9 => [
+                    $o[10],
+                    $o[11],
+                ],
+                12 => [
+                    $o[13],
+                    $o[14],
+                ],
+                15 => [
+                    $o[16],
+                ],
+                17 => [
+                    $o[18],
+                ],
+            ],
+            'constraintsByGroup' => [
+                [
+                    'Default' => [
+                        $o[19],
+                        $o[20],
+                    ],
+                    'User' => [
+                        $o[19],
+                        $o[20],
+                    ],
+                ],
+                [
+                    'post' => [
+                        $o[2],
+                    ],
+                ],
+                3 => [
+                    'post' => [
+                        $o[4],
+                        $o[5],
+                    ],
+                    'posted_user' => [
+                        $o[4],
+                    ],
+                ],
+                6 => [
+                    'post' => [
+                        $o[7],
+                        $o[8],
+                    ],
+                ],
+                9 => [
+                    'put-reset-password' => [
+                        $o[10],
+                    ],
+                    'Default' => [
+                        $o[11],
+                    ],
+                    'User' => [
+                        $o[11],
+                    ],
+                ],
+                12 => [
+                    'put-reset-password' => [
+                        $o[13],
+                    ],
+                    'Default' => [
+                        $o[14],
+                    ],
+                    'User' => [
+                        $o[14],
+                    ],
+                ],
+                15 => [
+                    'put-reset-password' => [
+                        $o[16],
+                    ],
+                ],
+                17 => [
+                    'post' => [
+                        $o[18],
+                    ],
+                    'posted_user' => [
+                        $o[18],
+                    ],
+                ],
+            ],
+            'class' => [
+                1 => 'App\\Entity\\User',
+                3 => 'App\\Entity\\User',
+                6 => 'App\\Entity\\User',
+                9 => 'App\\Entity\\User',
+                12 => 'App\\Entity\\User',
+                15 => 'App\\Entity\\User',
+                17 => 'App\\Entity\\User',
+            ],
+            'property' => [
+                1 => 'username',
+                3 => 'password',
+                6 => 'retypePassword',
+                9 => 'newPassword',
+                12 => 'newRetypePassword',
+                15 => 'oldPassword',
+                17 => 'name',
+            ],
+            'groups' => [
+                2 => [
+                    'post',
+                ],
+                4 => [
+                    'post',
+                    'posted_user',
+                ],
+                [
+                    'post',
+                ],
+                7 => [
+                    'post',
+                ],
+                [
+                    'post',
+                ],
+                10 => [
+                    'put-reset-password',
+                ],
+                [
+                    'Default',
+                    'User',
+                ],
+                13 => [
+                    'put-reset-password',
+                ],
+                [
+                    'Default',
+                    'User',
+                ],
+                16 => [
+                    'put-reset-password',
+                ],
+                18 => [
+                    'post',
+                    'posted_user',
+                ],
+                [
+                    'Default',
+                    'User',
+                ],
+                [
+                    'Default',
+                    'User',
+                ],
+            ],
+            'message' => [
+                5 => 'Password must be seven characters min',
+                8 => 'Passwords does not match',
+                11 => 'Password must be seven characters min',
+                14 => 'Passwords does not match',
+            ],
+            'pattern' => [
+                5 => '/(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{7,}/',
+                11 => '/(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{7,}/',
+            ],
+            'expression' => [
+                8 => 'this.getPassword() === this.getRetypePassword()',
+                14 => 'this.getNewPassword() === this.getNewRetypePassword()',
+            ],
+            'fields' => [
+                19 => 'email',
+                'username',
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];

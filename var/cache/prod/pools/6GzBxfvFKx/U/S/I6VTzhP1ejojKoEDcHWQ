@@ -1,0 +1,72 @@
+<?php //App_Entity_Spot
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Component\\Serializer\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\ClassMetadata')),
+        clone ($p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata')),
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+    ],
+    null,
+    [
+        'stdClass' => [
+            'name' => [
+                'App\\Entity\\Spot',
+                'id',
+                'title',
+                'name',
+                'published',
+                'content',
+                'author',
+                'slug',
+                'comments',
+                'subTypes',
+            ],
+            'attributesMetadata' => [
+                [
+                    'id' => $o[1],
+                    'title' => $o[2],
+                    'name' => $o[3],
+                    'published' => $o[4],
+                    'content' => $o[5],
+                    'author' => $o[6],
+                    'slug' => $o[7],
+                    'comments' => $o[8],
+                    'subTypes' => $o[9],
+                ],
+            ],
+            'groups' => [
+                2 => [
+                    'post',
+                    'get-spot-with-author',
+                ],
+                [
+                    'post',
+                    'get-spot-with-author',
+                ],
+                5 => [
+                    'post',
+                    'get-spot-with-author',
+                ],
+                [
+                    'post',
+                    'get-spot-with-author',
+                ],
+                [
+                    'post',
+                ],
+                [
+                    'get-spot-with-author',
+                ],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];

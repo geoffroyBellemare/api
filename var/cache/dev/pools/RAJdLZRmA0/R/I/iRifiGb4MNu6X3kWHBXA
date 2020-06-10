@@ -1,0 +1,38 @@
+<?php //%255BApp%255CEntity%255CShoppingCart%2524items%255D%255B1%255D
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Component\\Serializer\\Annotation\\Groups'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Annotation\\Groups')),
+        clone ($p['Doctrine\\ORM\\Mapping\\OneToMany'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\OneToMany')),
+    ],
+    null,
+    [
+        'Symfony\\Component\\Serializer\\Annotation\\Groups' => [
+            'groups' => [
+                [
+                    'get-owner',
+                    'get-cart-with-item',
+                ],
+            ],
+        ],
+        'stdClass' => [
+            'mappedBy' => [
+                1 => 'cart',
+            ],
+            'targetEntity' => [
+                1 => 'App\\Entity\\ShoppingCartItem',
+            ],
+            'cascade' => [
+                1 => [
+                    'persist',
+                    'remove',
+                ],
+            ],
+        ],
+    ],
+    [
+        $o[0],
+        $o[1],
+    ],
+    []
+); }];

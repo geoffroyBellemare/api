@@ -1,0 +1,30 @@
+<?php //subresource_operations_4912419b7be510473100573e8dad04bd
+
+return [PHP_INT_MAX, [
+    'api_spots_comments_get_subresource' => [
+        'property' => 'comments',
+        'collection' => true,
+        'resource_class' => 'App\\Entity\\Comment',
+        'shortNames' => [
+            'Comment',
+            'Spot',
+        ],
+        'identifiers' => [
+            [
+                'id',
+                'App\\Entity\\Spot',
+                true,
+            ],
+        ],
+        'operation_name' => 'comments_get_subresource',
+        'route_name' => 'api_spots_comments_get_subresource',
+        'path' => '/spots/{id}/comments.{_format}',
+        'defaults' => [],
+        'requirements' => [],
+        'options' => [],
+        'host' => '',
+        'schemes' => [],
+        'condition' => '',
+        'controller' => null,
+    ],
+]];

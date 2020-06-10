@@ -1,0 +1,77 @@
+<?php //%255BApp%255CEntity%255CPrestation%255D%255B1%255D
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['App\\Validators\\Constraints\\CompanyOwner'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('App\\Validators\\Constraints\\CompanyOwner')),
+        clone ($p['Doctrine\\ORM\\Mapping\\Entity'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Entity')),
+        clone ($p['ApiPlatform\\Core\\Annotation\\ApiFilter'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Core\\Annotation\\ApiFilter')),
+        clone ($p['ApiPlatform\\Core\\Annotation\\ApiResource'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Core\\Annotation\\ApiResource')),
+    ],
+    null,
+    [
+        'stdClass' => [
+            'groups' => [
+                [
+                    'Default',
+                ],
+            ],
+            'filterClass' => [
+                2 => 'ApiPlatform\\Core\\Serializer\\Filter\\PropertyFilter',
+            ],
+            'arguments' => [
+                2 => [
+                    'parameterName' => 'properties',
+                    'overrideDefaultProperties' => false,
+                    'whitelist' => [
+                        'id',
+                        'name',
+                        'quantity',
+                        'price',
+                        'company',
+                    ],
+                ],
+            ],
+            'collectionOperations' => [
+                3 => [
+                    'get' => [
+                        'normalization_context' => [
+                            'groups' => [
+                                'get-prestation-with-author',
+                            ],
+                        ],
+                    ],
+                    'post' => [
+                        'normalization_context' => [
+                            'groups' => [
+                                'get-prestation-with-author',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+            'itemOperations' => [
+                3 => [
+                    'put',
+                    'delete' => [
+                        'access_control' => '(is_granted(\'IS_AUTHENTICATED_FULLY\') and object.getCompany().getAuthor() == user)',
+                        'security_message' => 'Only admins can add books.',
+                    ],
+                    'get' => [
+                        'normalization_context' => [
+                            'groups' => [
+                                'get-prestation-with-author',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
+    ],
+    [
+        $o[0],
+        $o[1],
+        $o[2],
+        $o[3],
+    ],
+    []
+); }];

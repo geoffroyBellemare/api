@@ -1,0 +1,52 @@
+<?php //%255BApp%255CEntity%255CSpot%255D%255B1%255D
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\Entity'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Entity')),
+        clone ($p['ApiPlatform\\Core\\Annotation\\ApiResource'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Core\\Annotation\\ApiResource')),
+    ],
+    null,
+    [
+        'stdClass' => [
+            'repositoryClass' => [
+                'App\\Repository\\SpotRepository',
+            ],
+            'collectionOperations' => [
+                1 => [
+                    'get',
+                    'post' => [
+                        'access_control' => 'is_granted(\'ROLE_WRITER\')',
+                    ],
+                ],
+            ],
+            'itemOperations' => [
+                1 => [
+                    'get' => [
+                        'normalization_context' => [
+                            'groups' => [
+                                'get-spot-with-author',
+                            ],
+                        ],
+                    ],
+                    'put' => [
+                        'access_control' => 'is_granted(\'ROLE_EDITOR\') or (is_granted(\'ROLE_WRITER\') and object.getAuthor() == user)',
+                    ],
+                ],
+            ],
+            'attributes' => [
+                1 => [
+                    'denormalization_context' => [
+                        'groups' => [
+                            'post',
+                        ],
+                    ],
+                ],
+            ],
+        ],
+    ],
+    [
+        $o[0],
+        $o[1],
+    ],
+    []
+); }];
