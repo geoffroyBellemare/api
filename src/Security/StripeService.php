@@ -21,6 +21,7 @@ use Stripe\Stripe;
 use Stripe\Customer;
 use Stripe\EphemeralKey;
 use Stripe\PaymentIntent;
+use Stripe\Account;
 use Ramsey\Uuid\Uuid;
 
 class StripeService extends Stripe
@@ -222,6 +223,34 @@ class StripeService extends Stripe
 
     }
     /**
+     * @return PaymentIntent|null
+     */
+    public function createPaymentIntentTest()
+    {
+
+        try {
+
+            return PaymentIntent::create([
+                'amount' => 2000,
+                'currency' => 'usd',
+                'payment_method_types' => ['card'],
+            ]);
+        } catch (RateLimitException $e) {
+            $this->error = "Too many requests made to the API too quickly";
+        } catch (InvalidRequestException $e) {
+            $this->error = "Invalid parameters were supplied to Stripe's API". $e->getMessage();
+        } catch (AuthenticationException $e) {
+            $this->error = "Authentication with Stripe's API failed check keys";
+        } catch (ApiConnectionException $e) {
+            $this->error = "Network communication with Stripe failed";
+        } catch (ApiErrorException $e) {
+            $this->error = "check stripe account";
+        }catch (\Exception $e) {
+            $this->error = "Something else happened, completely unrelated to Stripe";
+        }
+        return null;
+    }
+    /**
      * @param Command $command
      * @return PaymentIntent|null
      */
@@ -314,6 +343,201 @@ class StripeService extends Stripe
         }
         return $lineItems;
     }
+
+    /**
+     * @param string $token
+     * @return Account
+     * @throws \Exception
+     */
+    public function createAccount($token) {
+        try {
+            return Account::create([
+                'country' => 'FR',
+                'type' => 'custom',
+                'requested_capabilities' => [
+                    'card_payments',
+                    'transfers',
+                ],
+                'business_profile' => [
+                    'mcc' => '5734',
+                     'url' => 'http://www.slideguide.com'
+                ],
+                'account_token' => $token,
+            ]);
+        } catch (RateLimitException $e) {
+            $this->error = "Too many requests made to the API too quickly";
+        } catch (InvalidRequestException $e) {
+            //$this->error = $e->getMessage();
+            $this->error = "Putain de merde";
+        } catch (AuthenticationException $e) {
+            $this->error = "Authentication with Stripe's API failed check keys";
+        } catch (ApiConnectionException $e) {
+            $this->error = "Network communication with Stripe failed";
+        } catch (ApiErrorException $e) {
+            $this->error = "check stripe account";
+        }catch (\Exception $e) {
+            $this->error = "Something else happened, completely unrelated to Stripe";
+        }
+        throw new \Exception($this->error);
+    }
+
+    /**
+     * @param string $accountId
+     * @param $token
+     * @return \Stripe\Person
+     * @throws \Exception
+     */
+    public function createPerson(string $accountId, $token) {
+
+        try {
+            return Account::createPerson($accountId, ['person_token' => $token]);
+        } catch (RateLimitException $e) {
+            $this->error = "Too many requests made to the API too quickly";
+        } catch (InvalidRequestException $e) {
+            $this->error = $e->getMessage();
+        } catch (AuthenticationException $e) {
+            $this->error = "Authentication with Stripe's API failed check keys";
+        } catch (ApiConnectionException $e) {
+            $this->error = "Network communication with Stripe failed";
+        } catch (ApiErrorException $e) {
+            $this->error = "check stripe account";
+        }catch (\Exception $e) {
+            $this->error = "Something else happened, completely unrelated to Stripe";
+        }
+        throw new \Exception($this->error);
+    }
+
+    /**
+     * @param string $personId
+     * @param string $accountId
+     * @param $token
+     * @return \Stripe\Person
+     * @throws \Exception
+     */
+    public function updatePerson(string $personId, string $accountId, $token) {
+
+        try {
+            return Account::updatePerson($accountId, $personId, ['person_token' => $token]);
+        } catch (RateLimitException $e) {
+            $this->error = "Too many requests made to the API too quickly";
+        } catch (InvalidRequestException $e) {
+            $this->error = $e->getMessage();
+        } catch (AuthenticationException $e) {
+            $this->error = "Authentication with Stripe's API failed check keys";
+        } catch (ApiConnectionException $e) {
+            $this->error = "Network communication with Stripe failed";
+        } catch (ApiErrorException $e) {
+            $this->error = "check stripe account";
+        }catch (\Exception $e) {
+            $this->error = "Something else happened, completely unrelated to Stripe";
+        }
+        throw new \Exception($this->error);
+    }
+    /**
+     * @param string $personId
+     * @param string $accountId
+     * @param $token
+     * @return \Stripe\Person
+     * @throws \Exception
+     */
+    public function deletePerson(string $personId, string $accountId) {
+        try {
+            return Account::deletePerson($accountId, $personId, []);
+        } catch (RateLimitException $e) {
+            $this->error = "Too many requests made to the API too quickly";
+        } catch (InvalidRequestException $e) {
+            $this->error = $e->getMessage();
+        } catch (AuthenticationException $e) {
+            $this->error = "Authentication with Stripe's API failed check keys";
+        } catch (ApiConnectionException $e) {
+            $this->error = "Network communication with Stripe failed";
+        } catch (ApiErrorException $e) {
+            $this->error = $e->getMessage();
+        }catch (\Exception $e) {
+            $this->error = "Something else happened, completely unrelated to Stripe";
+        }
+        throw new \Exception($this->error);
+    }
+
+    /**
+     * @param string $accountId
+     * @param string $token
+     * @return \Stripe\BankAccount|\Stripe\Card
+     * @throws \Exception
+     */
+    public function createExternalAccount(string $accountId, string $token) {
+        try {
+            return Account::createExternalAccount(
+                $accountId,
+                [
+                    'external_account' => $token,
+                ]);
+        } catch (RateLimitException $e) {
+            $this->error = "Too many requests made to the API too quickly";
+        } catch (InvalidRequestException $e) {
+            $this->error = $e->getMessage();
+        } catch (AuthenticationException $e) {
+            $this->error = "Authentication with Stripe's API failed check keys";
+        } catch (ApiConnectionException $e) {
+            $this->error = "Network communication with Stripe failed";
+        } catch (ApiErrorException $e) {
+            $this->error = "check stripe account";
+        }catch (\Exception $e) {
+            $this->error = "Something else happened, completely unrelated to Stripe";
+        }
+        throw new \Exception($this->error);
+    }
+
+    public function updateAccount($accountId, array $data) {
+        try {
+            return Account::update(
+                $accountId,
+                $data
+/*                [
+                    'account_token' => $token,
+                ]*/);
+        } catch (RateLimitException $e) {
+            $this->error = "Too many requests made to the API too quickly";
+        } catch (InvalidRequestException $e) {
+            $this->error = $e->getMessage();
+        } catch (AuthenticationException $e) {
+            $this->error = "Authentication with Stripe's API failed check keys";
+        } catch (ApiConnectionException $e) {
+            $this->error = "Network communication with Stripe failed";
+        } catch (ApiErrorException $e) {
+            $this->error = "check stripe account";
+        }catch (\Exception $e) {
+            $this->error = "Something else happened, completely unrelated to Stripe";
+        }
+        throw new \Exception($this->error);
+    }
+
+    /**
+     * @param $account_id
+     * @return Account
+     * @throws \Exception
+     */
+    public function getAccount($account_id) {
+        try {
+            return Account::retrieve($account_id, []);
+        } catch (RateLimitException $e) {
+            $this->error = "Too many requests made to the API too quickly";
+        } catch (InvalidRequestException $e) {
+            $this->error = $e->getMessage();
+        } catch (AuthenticationException $e) {
+            $this->error = "Authentication with Stripe's API failed check keys";
+        } catch (ApiConnectionException $e) {
+            $this->error = "Network communication with Stripe failed";
+        } catch (ApiErrorException $e) {
+            $this->error = "check stripe account";
+        }catch (\Exception $e) {
+            $this->error = "Something else happened, completely unrelated to Stripe";
+        }
+        throw new \Exception($this->error);
+
+
+    }
+
 
     /**
      * @return mixed

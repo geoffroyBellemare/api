@@ -83,7 +83,7 @@ class Prestation implements CompanizedEntityInterface
      */
     private $quantity;
     /**
-     * @Groups({"get_command_with_item", "get-cart-with-item"})
+     * @Groups({"get-prestation-with-author", "get_command_with_item", "get-cart-with-item"})
      * @ORM\ManyToOne(targetEntity="App\Entity\Company", inversedBy="prestations")
      * @ORM\JoinColumn(
      *      name="company_id",

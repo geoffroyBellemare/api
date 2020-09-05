@@ -4,6 +4,7 @@ namespace App\EventListener;
 
 use ApiPlatform\Core\Exception\InvalidArgumentException;
 use ApiPlatform\Core\Exception\ItemNotFoundException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use ApiPlatform\Core\Bridge\Symfony\Validator\Exception\ValidationException;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
 use Symfony\Component\HttpKernel\EventListener\ExceptionListener as BaseExceptionListener;
@@ -30,7 +31,8 @@ class ExceptionListener extends BaseExceptionListener
 
         if ($exception->getPrevious() instanceof InvalidArgumentException ||
             $exception->getPrevious() instanceof ItemNotFoundException ||
-            $exception->getPrevious() instanceof AccessDeniedHttpException
+            $exception->getPrevious() instanceof AccessDeniedHttpException ||
+            $exception->getPrevious() instanceof NotFoundHttpException
         ) {
             $violations = new ConstraintViolationList(
                 [

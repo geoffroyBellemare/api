@@ -29,7 +29,7 @@ class Image
     public $url;
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\User", mappedBy="imageProfile")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
     public $author;
 

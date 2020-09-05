@@ -5,6 +5,7 @@ namespace App\EventSubscriber;
 
 
 use ApiPlatform\Core\EventListener\EventPriorities;
+use App\Entity\ImagePreSignUrl;
 use App\Upload\AwsS3;
 use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
@@ -40,13 +41,13 @@ class PreSignUrlSubscriber implements  EventSubscriberInterface
     public function preSignUrl(ViewEvent $event)
     {
         $request = $event->getRequest();
-
+        $entity = $event->getControllerResult();
         if ('api_image_pre_sign_urls_post_collection' !==
-            $request->get('_route')) {
+            $request->get('_route') && !$entity instanceof ImagePreSignUrl) {
             return;
         }
 
-        $preSignUrl = $event->getControllerResult();
+        
 
         $event->setResponse(new JsonResponse(["preSignUrl" => $this->awsS3->preSignUrl()], Response::HTTP_OK));
     }

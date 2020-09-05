@@ -84,7 +84,8 @@ class CommandEntityPostSubscriber implements EventSubscriberInterface
             } else {
                $paymentIntent = $this->commandService->postUpdate($command);
             }
-            $event->setResponse(
+            $command->setClientSecret($paymentIntent->client_secret);
+/*            $event->setResponse(
                 new JsonResponse(
                     [
                         "command"=> [
@@ -92,13 +93,14 @@ class CommandEntityPostSubscriber implements EventSubscriberInterface
                             "secondaryId" => $command->getSecondaryId(),
                             "totalAmount" => $command->getTotalAmount(),
                             "created" => $command->getCreated(),
-                            "state"=> $command->getState()
+                            "state"=> $command->getState(),
+                            "commandItems"=> $command->getCommandItems()
                         ],
                         "clientSecret"=> $paymentIntent->client_secret
                     ],
                     Response::HTTP_CREATED
                 )
-            );
+            );*/
         } catch (\Exception $error ) {
             $event->setResponse(
                 new JsonResponse(

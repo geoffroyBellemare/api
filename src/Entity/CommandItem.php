@@ -60,7 +60,7 @@ class CommandItem
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Command", inversedBy="orderItems")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
     public $command;
 

@@ -13,6 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Serializer\Annotation\Groups;
 use App\Controller\StripeHooksAction;
+use App\Controller\CommandIntentactionTest;
 use App\Controller\CommandIntentAction;
 use App\Validators\Constraints as SGAssert;
 
@@ -76,6 +77,14 @@ use App\Validators\Constraints as SGAssert;
  *                    "path"="/command/paymentItent",
  *                    "controller"= CommandIntentAction::class,
  *                   "access_control"="is_granted('IS_AUTHENTICATED_FULLY')",
+ *                   "denormalization_context"={
+ *                      "groups"= {"put-payment-intent"}
+ *                  }
+ *            },
+ *          "post_PaymentIntent_test"={
+ *                    "method"="POST",
+ *                    "path"="/command/paymentIntentTest",
+ *                    "controller"= CommandIntentactionTest::class,
  *                   "denormalization_context"={
  *                      "groups"= {"put-payment-intent"}
  *                  }
@@ -162,6 +171,10 @@ class Command
      * @ApiSubresource()
      */
     public $shoppingCartItems;
+    /**
+     * @Groups({"get-owner", "get_command_with_item"})
+     **/
+    public $clientSecret;
 
 
 
@@ -319,6 +332,22 @@ class Command
     public function setSecondaryId($secondaryId): void
     {
         $this->secondaryId = $secondaryId;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getClientSecret()
+    {
+        return $this->clientSecret;
+    }
+
+    /**
+     * @param mixed $clientSecret
+     */
+    public function setClientSecret($clientSecret): void
+    {
+        $this->clientSecret = $clientSecret;
     }
 
 

@@ -46,6 +46,7 @@ class ShoppingCart
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\User", cascade={"remove"}, inversedBy="shoppingCart")
+     * @ORM\JoinColumn(name="customer_id", referencedColumnName="id", nullable=false,  onDelete="CASCADE")
      */
     public $customer;
 

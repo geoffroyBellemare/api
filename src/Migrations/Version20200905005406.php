@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20200402132211 extends AbstractMigration
+final class Version20200905005406 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,7 +22,9 @@ final class Version20200402132211 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE prestation ADD price DOUBLE PRECISION NOT NULL, ADD quantity INT NOT NULL');
+        $this->addSql('CREATE TABLE administration (id INT AUTO_INCREMENT NOT NULL, company_id INT DEFAULT NULL, user_id INT DEFAULT NULL, INDEX IDX_9FDD0D18979B1AD6 (company_id), INDEX IDX_9FDD0D18A76ED395 (user_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
+        $this->addSql('ALTER TABLE administration ADD CONSTRAINT FK_9FDD0D18979B1AD6 FOREIGN KEY (company_id) REFERENCES company (id) ON DELETE CASCADE');
+        $this->addSql('ALTER TABLE administration ADD CONSTRAINT FK_9FDD0D18A76ED395 FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE');
     }
 
     public function down(Schema $schema) : void
@@ -30,6 +32,6 @@ final class Version20200402132211 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE prestation DROP price, DROP quantity');
+        $this->addSql('DROP TABLE administration');
     }
 }

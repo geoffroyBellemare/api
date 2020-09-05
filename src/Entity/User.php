@@ -191,7 +191,7 @@ class User implements UserInterface
 
     /**
      * @Groups({"get_user", "posted_user", "get-prestation-with-author"})
-     * @ORM\OneToOne(targetEntity="App\Entity\Image", cascade={"persist"}, inversedBy="author")
+     * @ORM\OneToOne(targetEntity="App\Entity\Image", cascade={"persist", "remove"}, inversedBy="author")
      * @ORM\JoinColumn(onDelete="SET NULL")
      */
     private $imageProfile;
@@ -488,7 +488,7 @@ class User implements UserInterface
     }
 
     /**
-     * @return mixed
+     * @return mixed|Company
      */
     public function getCompany()
     {
